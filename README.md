@@ -3,7 +3,7 @@ Pets' food store on Flask
 
 Change-log:
 
-**v:** __0.0.1__
+**v:** _0.0.1_
 - Released:
   - user authentication
   - user registration
