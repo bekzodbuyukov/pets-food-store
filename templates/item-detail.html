@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ item.title }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-lg-3">
+
+      <h1 class="my-3">Категории</h1>
+      <div class="list-group">
+        <a href="#" class="list-group-item">Кошка</a>
+        <a href="#" class="list-group-item">Собака</a>
+      </div>
+
+    </div>
+    <!-- /.col-lg-3 -->
+
+    <div class="col-lg-9">
+      <br>
+      <br>
+
+      <div class="card mt-4">
+        {% if item.category == 'cat' %}
+          <img class="card-img-top img-fluid" src="https://cdn2.hubspot.net/hubfs/532826/Blog_Images/Cat-grooming-itself6-2018.jpg" alt="">
+        {% else %}
+          <img class="card-img-top img-fluid" src="https://www.hypropremium.com.au/wp-content/uploads/2020/03/understand-a-dogs-tail-movements-900x400.jpg" alt="">
+        {% endif %}
+          <div class="card-body">
+            {% if item.status == 1 %}
+              Доступен
+            {% else %}
+              Нет в наличии
+            {% endif %}
+            <h3 class="card-title">{{ item.title }}</h3>
+            <h4>{{ item.price }} руб.</h4>
+            <p class="card-text">{{ item.text }}</p>
+            <a href="/" class="btn btn-success">Главная</a>
+          </div>
+        </div>
+
+        <br>
+        <br>
+    </div>
+    <!-- /.col-lg-9 -->
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+{% endblock %}

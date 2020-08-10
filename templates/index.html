@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Главная
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-lg-3">
+
+      <h1 class="my-3">Категории</h1>
+      <div class="list-group">
+        <a href="#" class="list-group-item">Кошка</a>
+        <a href="#" class="list-group-item">Собака</a>
+      </div>
+
+    </div>
+    <!-- /.col-lg-3 -->
+
+    <div class="col-lg-9">
+
+      <br>
+      <br>
+
+      <div class="row">
+
+        {% if items|length > 0 %}
+
+          {% for item in items %}
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="/item-detail/{{ item.item_id }}">
+                {% if item.category == 'cat' %}
+                  <img class="card-img-top img-fluid" src="https://cdn2.hubspot.net/hubfs/532826/Blog_Images/Cat-grooming-itself6-2018.jpg" alt="">
+                {% else %}
+                  <img class="card-img-top img-fluid" src="https://www.hypropremium.com.au/wp-content/uploads/2020/03/understand-a-dogs-tail-movements-900x400.jpg" alt="">
+                {% endif %}
+              </a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="/item-detail/{{ item.item_id }}">{{ item.title }}</a>
+                </h4>
+                <h5>{{ item.price }} руб.</h5>
+                <p class="card-text">{{ item.intro }}</p>
+                <a href="/item-detail/{{ item.item_id }}" class="btn btn-outline-success">Детальнее</a>
+              </div>
+              <div class="card-footer">
+                  {% if item.status == 1 %}
+                    Доступен
+                  {% else %}
+                    Нет в наличии
+                  {% endif %}
+                  <!--<a href="#">Купить</a>
+                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>-->
+              </div>
+            </div>
+          </div>
+
+          {% endfor %}
+
+        {% else %}
+
+          <p style="color: red;">К сожалению, ещё ни один продукт не добавлен</p>
+
+        {% endif %}
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.col-lg-9 -->
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+{% endblock %}
