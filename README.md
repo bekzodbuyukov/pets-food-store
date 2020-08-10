@@ -1,5 +1,5 @@
 # pets-food-store
-Pets' food store on Flask
+Pets' food store on Flask using Bootstrap templates
 
 Change-log:
 
